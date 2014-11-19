@@ -114,7 +114,8 @@ tl.pg.interval = {};
         'steps_element': '#tlyPageGuide',
         'auto_refresh': false,
         'refresh_welcome': false,
-        'refresh_interval': 500
+        'refresh_interval': 500,
+        'scroll_selector': 'html,body'
     };
 
     // boilerplate markup for the message display element and shadow/index bubble container.
@@ -542,7 +543,7 @@ tl.pg.interval = {};
             }
 
             if (!tl.pg.isScrolledIntoView($(targetKey))) {
-                $('html,body').animate({scrollTop: target.targetStyle.top - 50}, 500);
+                $(this.preferences.scroll_selector).animate({scrollTop: target.targetStyle.top - 50}, 500);
             }
             this.$message.show().animate({'height': height}, 500);
             this.roll_number(this.$message.find('span'), target.index);
